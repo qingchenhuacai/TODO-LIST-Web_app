@@ -1,0 +1,115 @@
+<html>
+
+<head>
+    <title>The List that never ends</title>
+    <link rel="stylesheet" href="todo.css">
+    <script src="todo.js" defer></script>
+</head>
+
+<body onload="bootstrap()">
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#add">Add</a></li>
+            <li><a href="#finish">Finish</a></li>
+            <li><a href="#display">Display</a></li>
+        </ul>
+    </nav>
+    <div id="container">
+        <div id="home">
+            <!-- Section for adding new tasks -->
+            <div id="addpane">
+                <h3>ADD NEW TASKS</h3>
+                <ul>
+                    <li>Use this section to add new tasks.</li>
+                    <li>Ensure all fields are filled before adding.</li>
+                    <li>Click the "Add" button below to add a task.</li>
+                    <li><a href="#add">Add</a></li>
+                </ul>
+            </div>
+            <!-- Section for finishing tasks -->
+            <div id="finishpane">
+                <h3>FINISH TASKS</h3>
+                <ul>
+                    <li>Use this section to mark tasks as finished.</li>
+                    <li>Enter the task ID and click "Finish" to mark it as done.</li>
+                    <li><a href="#finish">Finish</a></li>
+                </ul>
+            </div>
+            <!-- Section for displaying tasks -->
+            <div id="displaypane">
+                <h3>CHECK TASKS</h3>
+                <ul>
+                    <li>Use this section to check all tasks.</li>
+                    <li><a href="#display">Display</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="add">
+            <h2>Add a New Task to the List</h2>
+            <form>
+                <!-- Form for adding a new task -->
+                <label for="description">Task Description:</label><br>
+                <input type="text" id="description" name="description" required><br>
+                <label for="priority">Priority:</label><br>
+                <input type="number" id="priority" name="priority" min="1" required><br>
+                <label for="deadline">Deadline:</label><br>
+                <input type="date" id="deadline" name="deadline" required><br>
+                <button type="button" onclick="addfunction()">Add Task</button>
+                <button type="button" onclick="clearoutstandingtask()">Clear All</button>
+                <ul>
+                    <li id="link"><a href="#home">Back to home</a></li>
+                </ul>
+            </form>
+        </div>
+        <div id="finish">
+            <h2>Select a Task to Finish</h2>
+            <form>
+                <!-- Form for finishing a task -->
+                <label for="taskID">Task ID:</label><br>
+                <input type="number" id="taskID" name="taskID" min="1"><br>
+                <button type="button" onclick="finishfunction()">Finish Task</button>
+                <button type="button" onclick="clearfinishedtasks()">Clear All</button>
+                <ul>
+                    <li id="link"><a href="#home">Back to home</a></li>
+                </ul>
+            </form>
+        </div>
+        <div id="display">
+            <!-- Display tables for outstanding and completed tasks -->
+            <table id="displayoutstanding">
+                <caption>Outstanding Task List</caption>
+                <thead>
+                    <tr>
+                        <th>Sno</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Deadline</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <table id="displaycompleted">
+                <caption>Completed Task List</caption>
+                <thead>
+                    <tr>
+                        <th>Sno</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Deadline</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <ul>
+                <li id="link"><a href="#home">Back to home</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
